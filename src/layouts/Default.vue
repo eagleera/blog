@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="layout" :class="[getTheme.bg_color, getTheme.textcolor]">
     <header class="header">
       <Slide class="is-hidden-desktop">
         <a href="/knowledge">
@@ -26,21 +26,26 @@
             </a>
           </div>
           <div class="column is-6 is-hidden-touch">
-            <div class="columns has-text-primary tc">
+
+            <div class="columns tc">
               <div class="column">
-                <a class="has-text-primary" @click="changeMode()">Sepia mode</a>
+                <a @click="changeMode()" :class="getTheme.textcolor">
+                  <fa icon="lightbulb" v-show="getTheme.mode == 'light'" size="lg"/>
+                  <fa icon="moon" v-show="getTheme.mode == 'dark'" size="lg" />
+                  <fa icon="mug-hot" v-show="getTheme.mode == 'sepia'" size="lg" />
+                </a>
               </div>
               <div class="column">
-                <a class="has-text-primary" :class="{'active': ruta == '/blog'}" href="/blog">Knowledge</a>
+                <a :class="[{'active': ruta == '/blog'}, getTheme.textcolor]" href="/blog">Knowledge</a>
               </div>
               <div class="column">
-                <a class="has-text-primary" :class="{'active': ruta == '/books'}" href="/books">Books</a>
+                <a :class="[{'active': ruta == '/books'}, getTheme.textcolor]" href="/books">Books</a>
               </div>
               <div class="column">
-                <a class="has-text-primary" :class="{'active': ruta == '/learning-list'}" href="/learning-list">Learning List</a>
+                <a :class="[{'active': ruta == '/learning-list'}, getTheme.textcolor]" href="/learning-list">Learning List</a>
               </div>
               <div class="column">
-                <a class="has-text-primary" :class="{'active': ruta == '/her-me'}" href="/her-me">Her & Me</a>
+                <a :class="[{'active': ruta == '/her-me'}, getTheme.textcolor]" href="/her-me">Her & Me</a>
               </div>
             </div>
           </div>
@@ -56,7 +61,6 @@
           from 🇲🇽| {{ new Date().getFullYear() }}
         </div>
       </div>
-      {{ getTheme }}
     </footer>
   </div>
 </template>

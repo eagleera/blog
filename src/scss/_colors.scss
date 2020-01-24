@@ -10,10 +10,16 @@ $info: $blue;
 $hover: #177aac;
 $sepia: #eadec2;
 $sepia-invert: #0c3d67;
+$dark: #0c3d67;
+$dark-invert: $white-bis;
 $custom-colors: (
   "sepia": (
     $sepia,
     $sepia-invert
+  ),
+  "dark": (
+    $dark,
+    $dark-invert
   ),
 );
 //HELPERS

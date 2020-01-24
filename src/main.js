@@ -6,12 +6,12 @@ import "tachyons";
 import "typeface-work-sans";
 import DefaultLayout from "~/layouts/Default.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { } from "@fortawesome/free-solid-svg-icons";
+import { faMugHot, faMoon, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import { } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Vuex from 'vuex';
 
-library.add()
+library.add(faMugHot, faMoon, faLightbulb)
 
 export default function(Vue, { router, head, isClient, appOptions }) {
   Vue.use(Buefy, {
@@ -54,12 +54,11 @@ export default function(Vue, { router, head, isClient, appOptions }) {
     },
     actions: {
       changeMode({ commit }, mode) {
-        console.log(mode);
         switch(mode){
           case "sepia":
             commit("CHANGE_MODE", "sepia");
             commit("CHANGE_BG", "has-background-sepia");
-            commit("CHANGE_TEXTCOLOR", "has-text-sepia");
+            commit("CHANGE_TEXTCOLOR", "has-text-dark");
             commit("CHANGE_THEME", "is-sepia");
             break;
           case "dark":

@@ -8,7 +8,7 @@
 <script>
 export default {
   metaInfo: {
-    title: "App",
+    title: "Books",
   },
   data() {
     return {}
