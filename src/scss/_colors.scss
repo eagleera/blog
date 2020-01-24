@@ -1,0 +1,48 @@
+//WHITES
+$white: #fff;
+$white-bis: #f2f9fc;
+$white-ter: #f5f5f5;
+//APP
+$primary: #0f4c81;
+$blue: #3583e2;
+$link: $blue;
+$info: $blue;
+$hover: #177aac;
+$sepia: #eadec2;
+$sepia-invert: #0c3d67;
+$custom-colors: (
+  "sepia": (
+    $sepia,
+    $sepia-invert
+  ),
+);
+//HELPERS
+$green: #57f2ab;
+$success: $green;
+$danger: #ff5353;
+$warning: #ffe12d;
+//GREYS
+$grey-lighter: #ececec;
+$grey-light: #818181;
+$grey: #818181;
+$grey-dark: #6c6c6c;
+$grey-darker: #333333;
+//BLACKS
+$black: #0a0a0a;
+$black-ter: #242424;
+$black-bis: #121212;
+//EXTRAS
+$radius: 9px;
+$button-border-width: 2px;
+$input-border-color: $white-ter;
+$input-background-color: $white-ter;
+$input-color: $grey-light;
+$box-shadow: none;
+$toast-border-radius: $radius;
+
+.input,
+.taginput .taginput-container.is-focusable,
+.textarea {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}

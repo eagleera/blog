@@ -20,13 +20,16 @@
       </Slide>
       <div class="container">
         <div class="columns is-mobile is-vcentered">
-          <div class="column is-2 is-offset-2-touch">
+          <div class="column is-6 is-offset-2-touch">
             <a href="/">
               <g-image src="~/assets/images/logo.png" width="55" />
             </a>
           </div>
-          <div class="column is-two-thirds is-hidden-touch">
+          <div class="column is-6 is-hidden-touch">
             <div class="columns has-text-primary tc">
+              <div class="column">
+                <a class="has-text-primary" @click="changeMode()">Sepia mode</a>
+              </div>
               <div class="column">
                 <a class="has-text-primary" :class="{'active': ruta == '/blog'}" href="/blog">Knowledge</a>
               </div>
@@ -37,10 +40,7 @@
                 <a class="has-text-primary" :class="{'active': ruta == '/learning-list'}" href="/learning-list">Learning List</a>
               </div>
               <div class="column">
-                <a class="has-text-primary" :class="{'active': ruta == '/me-her'}" href="/me-her">Her & Me</a>
-              </div>
-              <div class="column">
-                <a class="has-text-primary">Sepia mode</a>
+                <a class="has-text-primary" :class="{'active': ruta == '/her-me'}" href="/her-me">Her & Me</a>
               </div>
             </div>
           </div>
@@ -49,11 +49,14 @@
     </header>
     <slot />
     <footer>
-      <div class="columns pt3 is-multiline">
-        <div class="column is-offset-1 is-1 tc pt0 pb0">
-          Built with Gridsome by Daniel Aguilera 💻 from 🇲🇽| {{ new Date().getFullYear() }}
+      <div class="columns is-multiline is-vcentered h-100">
+        <div class="column tc pt0 pb0 has-text-primary">
+          Built with Gridsome by 
+          <a href="https://twitter.com/Eagleera">Daniel Aguilera 💻</a>
+          from 🇲🇽| {{ new Date().getFullYear() }}
         </div>
       </div>
+      {{ getTheme }}
     </footer>
   </div>
 </template>
@@ -67,7 +70,8 @@ query {
 </static-query>
 
 <script>
-import { Slide } from 'vue-burger-menu'
+import { Slide } from 'vue-burger-menu';
+import { mapGetters } from 'vuex';
 
 export default {
   data(){
@@ -83,6 +87,25 @@ export default {
     getRoute() {  
       this.ruta = this.$route.path;
     },
+    changeMode() {
+      console.log(this.$store);
+      switch(this.getTheme.mode) {
+        case "sepia":
+          this.$store.dispatch("changeMode", "light");
+          break;
+        case "light":
+          this.$store.dispatch("changeMode", "dark");
+          break;
+        case "dark":
+          this.$store.dispatch("changeMode", "sepia");
+          break;
+      }
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'getTheme'
+    ])
   },
   mounted() {
     this.getRoute();
@@ -91,12 +114,7 @@ export default {
 </script>
 
 <style lang="scss">
-//BULMA VARIABLES
-$primary: #0f4c81;
-$grey: #818181;
-$radius: 9px;
-$black: #333;
-$button-border-width: 2px;
+@import "@/scss/_colors.scss";
 @import "~bulma/sass/utilities/_all";
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
@@ -119,7 +137,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 81px;
+  height: 100px;
 }
 .iniciar-sesion .dropdown-content {
   padding: 18px 12px;
@@ -127,6 +145,7 @@ body {
 }
 footer{
   background-color: #f5f5f5;
+  height: 80px;
   img{
     max-height: 5rem;
     width: auto;
