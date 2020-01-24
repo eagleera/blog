@@ -1,0 +1,30 @@
+{
+  "name": "blog_daniel_aguilera",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/vue-fontawesome": "^0.1.9",
+    "@gridsome/remark-prismjs": "^0.2.0",
+    "@gridsome/source-filesystem": "^0.6.0",
+    "@gridsome/transformer-remark": "^0.3.0",
+    "buefy": "^0.8.8",
+    "debounce": "^1.2.0",
+    "flexsearch": "^0.6.32",
+    "gridsome": "^0.7.12",
+    "gridsome-plugin-flexsearch": "^0.1.10",
+    "typeface-work-sans": "0.0.72",
+    "vue-burger-menu": "^2.0.3"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "tachyons": "^4.10.0"
+  }
+}
