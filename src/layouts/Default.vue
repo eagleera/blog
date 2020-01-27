@@ -21,8 +21,11 @@
       <div class="container">
         <div class="columns is-mobile is-vcentered">
           <div class="column is-6 is-offset-2-touch">
-            <a href="/">
+            <a href="/" class="flex items-center">
               <g-image src="~/assets/images/logo.png" width="55" />
+              <span class="b f2 ml3" :class="getTheme.textcolor">
+                Daniel Aguilera
+              </span>
             </a>
           </div>
           <div class="column is-6 is-hidden-touch">
@@ -142,6 +145,7 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 100px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .iniciar-sesion .dropdown-content {
   padding: 18px 12px;
