@@ -4,10 +4,6 @@ export default [
     component: () => import(/* webpackChunkName: "page--src--templates--tag-vue" */ "/Users/noelaguileraterrazas/Documents/blog/src/templates/Tag.vue")
   },
   {
-    path: "/blog/:page(\\d+)?/",
-    component: () => import(/* webpackChunkName: "page--src--pages--blog-vue" */ "/Users/noelaguileraterrazas/Documents/blog/src/pages/Blog.vue")
-  },
-  {
     path: "/blog/:title/",
     component: () => import(/* webpackChunkName: "page--src--templates--post-vue" */ "/Users/noelaguileraterrazas/Documents/blog/src/templates/Post.vue")
   },
@@ -18,6 +14,10 @@ export default [
   {
     path: "/her-me/",
     component: () => import(/* webpackChunkName: "page--src--pages--her-me-vue" */ "/Users/noelaguileraterrazas/Documents/blog/src/pages/HerMe.vue")
+  },
+  {
+    path: "/blog/",
+    component: () => import(/* webpackChunkName: "page--src--pages--blog-vue" */ "/Users/noelaguileraterrazas/Documents/blog/src/pages/Blog.vue")
   },
   {
     path: "/books/",

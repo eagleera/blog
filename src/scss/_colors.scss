@@ -1,7 +1,7 @@
 //WHITES
 $white: #fff;
 $white-bis: #f2f9fc;
-$white-ter: #f5f5f5;
+$white-ter: #fff;
 //APP
 $primary: #0f4c81;
 $blue: #3583e2;
@@ -46,9 +46,9 @@ $input-color: $grey-light;
 $box-shadow: none;
 $toast-border-radius: $radius;
 
-.input,
-.taginput .taginput-container.is-focusable,
-.textarea {
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}
+// .input,
+// .taginput .taginput-container.is-focusable,
+// .textarea {
+//   -webkit-box-shadow: none !important;
+//   box-shadow: none !important;
+// }

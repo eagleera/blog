@@ -1,6 +1,6 @@
 <template>
   <div class="layout" :class="[getTheme.bg_color, getTheme.textcolor]">
-    <header class="header">
+    <header class="header" :class="[getTheme.bg_color]">
       <Slide class="is-hidden-desktop">
         <a href="/knowledge">
           <span>Knowledge</span>
@@ -57,9 +57,11 @@
     </header>
     <slot />
     <footer>
-      <div class="columns is-multiline is-vcentered h-100">
-        <div class="column tc pt0 pb0 has-text-primary">
-          Built with Gridsome by 
+      <div class="columns is-multiline is-vcentered h-100" :class="[getTheme.bg_color, getTheme.textcolor]">
+        <div class="column tc pt0 pb0">
+          Built with 
+          <a href="https://github.com/gridsome">Gridsome</a>
+          by 
           <a href="https://twitter.com/Eagleera">Daniel Aguilera 💻</a>
           from 🇲🇽| {{ new Date().getFullYear() }}
         </div>
@@ -132,6 +134,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
+  overflow-y: hidden !important;
 }
 .has-border-radius {
   border-radius: $radius;
@@ -141,6 +144,8 @@ body {
 }
 
 .header {
+  z-index: 2;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -152,8 +157,9 @@ body {
   min-width: 16rem;
 }
 footer{
-  background-color: #f5f5f5;
+  filter: brightness(90%);
   height: 80px;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
   img{
     max-height: 5rem;
     width: auto;

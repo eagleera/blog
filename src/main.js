@@ -6,12 +6,12 @@ import "tachyons";
 import "typeface-work-sans";
 import DefaultLayout from "~/layouts/Default.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMugHot, faMoon, faLightbulb } from "@fortawesome/free-solid-svg-icons";
+import { faMugHot, faMoon, faLightbulb, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faTwitter, faLinkedin, faGithubAlt, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Vuex from 'vuex';
 
-library.add(faMugHot, faMoon, faLightbulb, faTwitter, faGithubAlt, faLinkedinIn)
+library.add(faMugHot, faMoon, faLightbulb, faTwitter, faGithubAlt, faLinkedinIn, faSearch)
 
 export default function(Vue, { router, head, isClient, appOptions }) {
   Vue.use(Buefy, {
