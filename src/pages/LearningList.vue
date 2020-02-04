@@ -5,7 +5,7 @@
         <div class="container pt4">
           <div class="columns">
             <div class="column mt4 is-6">
-              <p class="title" :class="getTheme.textcolor">Learning in public</p>
+              <p class="title" :class="getTheme.textcolor">My Learning List</p>
               <p class="subtitle" :class="getTheme.textcolor">
                 Here's a list of subjects I want to know about
                 <br />(maybe not all related to development)
@@ -22,7 +22,7 @@
                       <fa icon="book-open" :class="getTheme.textcolor" />
                       <span :class="getTheme.textcolor">
                         To learn
-                        <b-tag rounded :class="[getTheme.bg_color, getTheme.textcolor]">3</b-tag>
+                        <b-tag rounded :class="[getTheme.bg_color, getTheme.textcolor]">{{ total_tolearn }}</b-tag>
                       </span>
                     </div>
                   </template>
@@ -33,17 +33,28 @@
                       <fa icon="graduation-cap" :class="getTheme.textcolor" />
                       <span :class="getTheme.textcolor">
                         Learned
-                        <b-tag rounded :class="[getTheme.bg_color, getTheme.textcolor]">5</b-tag>
+                        <b-tag rounded :class="[getTheme.bg_color, getTheme.textcolor]">{{ total_learned }}</b-tag>
                       </span>
                     </div>
                   </template>
                 </b-tab-item>
               </b-tabs>
               <div v-if="activeTab == 0">
-                <p>placeholder list to learn</p>
+                <div v-for="list in to_learn" class="mb4" :key="list.title">
+                  <p class="f2 underline" :class="getTheme.textcolor">
+                    {{ list.title}}
+                  </p>
+                  <ul>
+                    <li v-for="(item, index) in list.things" :key="index">
+                      <div class="field">
+                        <b-checkbox>{{ item }}</b-checkbox>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
               <div v-if="activeTab == 1">
-                <p>placeholder learned</p>
+                <p>Nothing here yet :( come back soon</p>
               </div>
             </div>
           </div>
@@ -62,22 +73,69 @@ export default {
   },
   data() {
     return {
-      activeTab: 0
+      activeTab: 0,
+      to_learn: [
+        {
+          title: "Javascript",
+          things: [
+            "Asynchronous functions",
+            "Map, Filter & Reduce",
+            "Classes"
+          ]
+        },
+        {
+          title: "Backend",
+          things: [
+            "GraphQL",
+            "Postman"
+          ]
+        },
+        {
+          title: "DevOps",
+          things: [
+            "Docker",
+            "Pipelines"
+          ]
+        }
+      ],
+      learned: [
+
+      ]
     };
   },
   computed: {
-    ...mapGetters(["getTheme"])
+    ...mapGetters(["getTheme"]),
+    total_tolearn(){
+      let total = 0;
+      this.to_learn.forEach(element => {
+        element.things.forEach(thing => {
+          total++;
+        });
+      });
+      return total;
+    },
+    total_learned(){
+      let total = 0;
+      return total;
+    }
   }
 };
 </script>
 
 <style lang="scss">
+@import "@/scss/_colors.scss";
 .tab-header-container {
   padding: 0.5em 1em;
   border-radius: 9px 9px 0 0;
 }
 .tabs.is-boxed a {
-  padding: 0 !important;
+  padding: 0 !important; 
+  &:hover{
+    border-color: $primary !important;
+  }
+}
+.tabs.is-boxed li.is-active a{
+  border-color: $primary !important;
 }
 .mb0i{
   margin-bottom: 0 !important;
