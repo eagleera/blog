@@ -30,7 +30,7 @@ export default [
   },
   {
     name: "home",
-    path: "/",
+    path: "/:page(\\d+)?/",
     component: () => import(/* webpackChunkName: "page--src--pages--index-vue" */ "/Users/noelaguileraterrazas/Documents/blog/src/pages/Index.vue")
   },
   {

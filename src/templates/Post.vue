@@ -3,8 +3,9 @@
     <section>
       <div class="container pt4">
         <div class="columns pb5">
-          <div class="column">
-            <p>{{ $page.post.title }} </p>
+          <div class="column is-offset-3 is-6">
+            <h1 class="f2 b">{{ $page.post.title }} </h1>
+            
             <div class="content" v-html="$page.post.content" />
           </div>
         </div>
@@ -36,7 +37,6 @@ query Post ($id: ID!) {
     path
     date (format: "D. MMMM YYYY")
     timeToRead
-    tipo
     description
     author,
     content

@@ -66,29 +66,9 @@
               />
             </b-field>
           </div>
-          <div class="column is-6 is-offset-3">
-            <div class="card has-border-radius pa4" :class="getTheme.bg_color">
-              <p class="title" :class="getTheme.textcolor">hola</p>
-              <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci et repudiandae quas vero. Inventore dolorum atque suscipit fuga consequuntur, sit, nobis ea vero, similique ut fugit rerum consequatur facilis adipisci...</p>
-              <hr class="mb1 mt2">
-              <small>22/05/1997</small>
-              <small class="ml3 has-text-dark">
-                <router-link to="home">#Vue,</router-link>
-                <router-link to="home"> #Productivity,</router-link>
-              </small>
-            </div>
-          </div>
-          <div class="column is-6 is-offset-3">
-            <div class="card has-border-radius pa4" :class="getTheme.bg_color">
-              <p class="title" :class="getTheme.textcolor">hola</p>
-              <p class="desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci et repudiandae quas vero. Inventore dolorum atque suscipit fuga consequuntur, sit, nobis ea vero, similique ut fugit rerum consequatur facilis adipisci...</p>
-              <hr class="mb1 mt2">
-              <small>22/05/1997</small>
-              <small class="ml3 has-text-dark">
-                <router-link to="home">#Vue,</router-link>
-                <router-link to="home"> #Productivity,</router-link>
-              </small>
-            </div>
+          <div class="column is-offset-3 is-6" v-for="edge in results" :key="edge.id"
+            :class="{'is-half': results.length > 1}">
+            <PostCard :post="edge"/>
           </div>
         </div>
       </section>
@@ -96,15 +76,47 @@
   </div>
 </template>
 
+<page-query>
+query($page: Int) {
+  posts: allPost(perPage: 1, page: $page) @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
+    edges {
+      node {
+        id
+        title
+        date
+        timeToRead
+        description
+        path
+        tags {
+          id
+          title
+          path
+        }
+      }
+    }
+  }
+}
+</page-query>
+
 <script>
 import { mapGetters } from "vuex";
+import PostCard from "~/components/PostCard.vue";
 
 export default {
   metaInfo: {
     title: "App"
   },
   data() {
-    return {};
+    return {
+      results: []
+    };
+  },
+  components: {
+    PostCard
   },
   computed: {
     ...mapGetters(["getTheme"])
@@ -131,7 +143,10 @@ export default {
           break;
       }
     }
-  }
+  },
+  mounted() {
+    this.results = this.$search.search("Post");
+  },
 };
 </script>
 
@@ -167,8 +182,5 @@ export default {
     rgba(255, 255, 255, 0)
   );
   padding-bottom: 3rem;
-}
-.card{
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
 }
 </style>

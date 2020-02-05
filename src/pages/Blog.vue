@@ -6,11 +6,8 @@
           <Sidebar />
           <div class="column">
             <div class="columns is-multiline pl4">
-              <div class="column is-12">
-                <h4 class="f2 b mb2" :class="getTheme.textcolor">Take a look of all my posts
-                    <a href="/blog" class="fr has-text-grey-darker">
-                        <fa icon="times" size="sm" />
-                    </a>
+              <div class="column is-5">
+                <h4 class="f2 b mb2" :class="getTheme.textcolor">Take a look to my knowledge collection!
                 </h4>
                 <b-field>
                   <b-input placeholder="Buscar..."
@@ -23,9 +20,8 @@
                 </b-field>
               </div>
               <div class="columns is-multiline w-100" v-if="results.length > 0">
-                <div class="column is-12" v-for="edge in results" :key="edge.id"
+                <div class="column is-offset-3 is-6" v-for="edge in results" :key="edge.id"
                 :class="{'is-half': results.length > 1}">
-                  
                   <PostCard :post="edge"/>
                 </div>
               </div>
@@ -46,7 +42,7 @@
 
 <page-query>
 query($page: Int) {
-  posts: allPost(perPage: 1, page: $page, filter: { published: { eq: true }, tags: {contains: ["Post"]}}) @paginate {
+  posts: allPost(perPage: 1, page: $page) @paginate {
     pageInfo {
       totalPages
       currentPage
@@ -58,7 +54,6 @@ query($page: Int) {
         date
         timeToRead
         description
-        cover_image
         path
         tags {
           id
@@ -72,7 +67,6 @@ query($page: Int) {
 </page-query>
 
 <script>
-import Flexsearch from "flexsearch";
 import PostCard from "~/components/PostCard.vue";
 import { mapGetters } from "vuex";
 
@@ -94,9 +88,7 @@ export default {
     ...mapGetters(["getTheme"])
   },
   mounted() {
-    this.results = this.$search.search("Post", {
-      field: "tags",
-    });
+    this.results = this.$search.search("Post");
   },
   methods: {
     searchResults() {
