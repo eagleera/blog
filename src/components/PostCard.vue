@@ -1,5 +1,5 @@
 <template>
-  <div class="mt0 mb0 content-box pa2 has-border-radius">
+  <div class="mt0 mb0 content-box pa2 has-border-radius card">
     <a :href="post.path">
       <div class="columns">
         <div class="column is-3" v-if="post.cover_image">

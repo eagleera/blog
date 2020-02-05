@@ -67,7 +67,7 @@ export default {
           "read": "January 2020",
           "link": "https://www.amazon.com/-/es/gp/product/1617292397/ref=dbs_a_def_rwt_bibl_vppi_i1",
           "bookimg": "/images/books/soft-skills.jpeg",
-          "review": "Even though this book uses the buzz word \"Soft Skills\", I found it to be a really good book\
+          "review": "Even though this book use the buzz word \"Soft Skills\", I found it to be a really good book\
                     , I knew that it isn't the first book of the author and the content that I found in it can make\
                     you change your perspective about things outside your job as a programmer.",
           "keypoints": [
@@ -83,14 +83,8 @@ export default {
           "read": "January - February 2020",
           "link": "https://www.amazon.com/-/es/gp/product/1101904054/ref=dbs_a_def_rwt_bibl_vppi_i0",
           "bookimg": "/images/books/productivity-project.jpeg",
-          "review": "Even though this book uses the buzz word \"Soft Skills\", I found it to be a really good book\
-                    , I knew that it isn't the first book of the author and the content that I found in it can make\
-                    you change your perspective about things outside your job as a programmer.",
+          "review": "Currently reading it...",
           "keypoints": [
-            "Build a reputation online",
-            "Try to always apply to a job with a reference",
-            "Fake it until you make it",
-            "Invest as early as possible"
           ]
         }
       ]

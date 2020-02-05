@@ -128,6 +128,13 @@ export default {
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
 
+#app{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.card{
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
 body {
   font-family: 'Work Sans', sans-serif;
   word-spacing: 0rem;

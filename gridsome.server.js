@@ -7,32 +7,6 @@
 
 module.exports = function (api) {
   api.loadSource(actions => {
-    const collection = actions.addCollection('Pages')
-    collection.addNode({
-      title: 'Beneficios',
-      path: '/beneficios',
-      keywords: ['core bancario', 'seguridad', 'soporte']
-    })
-    collection.addNode({
-      title: 'FAQ',
-      path: '/faq',
-      keywords: ['bancaria', 'cartera', 'contabilidad', 'desarrollo', 'facturacion', 'infraestructura', 'pld', 'reportes', 'sic']
-    })
-    collection.addNode({
-      title: 'Precios',
-      path: '/precios',
-      keywords: ['nube', 'servidores', 'server', 'plan', 'facturacion', 'infraestructura', 'pld', 'reportes', 'sic']
-    })
-    collection.addNode({
-      title: 'Testimonios',
-      path: '/testimonios',
-      keywords: ['clientes']
-    })
-    collection.addNode({
-      title: 'Contacto',
-      path: '/contacto',
-      keywords: ['contacto', 'reunion']
-    })
   })
 
   api.createPages(({ createPage }) => {
