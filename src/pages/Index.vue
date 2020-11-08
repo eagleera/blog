@@ -4,7 +4,7 @@
       <section>
         <div class="container">
           <div class="columns is-vcentered">
-            <div class="column is-7">
+            <div class="column is-7 px-7">
               <p class="f1 b mb2" :class="getTheme.textcolor">Hola!</p>
               <p
                 class="f3 fw4 mb3"
@@ -46,29 +46,10 @@
             </div>
             <div class="column is-5 relative">
               <g-image src="~/assets/images/me.jpg" class="br-100 scale-img" />
-              <g-image src="~/assets/images/blob1.svg" class="blob" width="300" />
+              <g-image src="~/assets/images/blob1.svg" class="blob" width="280" />
               <g-image src="~/assets/images/blob2.svg" class="blob2" width="240" />
               <g-image src="~/assets/images/blob3.svg" class="blob3" />
             </div>
-          </div>
-        </div>
-        <div class="columns blog-bg is-multiline" :class="getTheme.bg_color">
-          <div class="column tc mt5 is-12">
-            <h1 class="f1 b pt4">Latest Blog Posts</h1>
-          </div>
-          <div class="column is-6 is-offset-3">
-            <b-field>
-              <b-input 
-                placeholder="Search..."
-                type="search"
-                expanded
-                icon="search"
-              />
-            </b-field>
-          </div>
-          <div class="column is-offset-3 is-6" v-for="edge in results" :key="edge.id"
-            :class="{'is-half': results.length > 1}">
-            <PostCard :post="edge"/>
           </div>
         </div>
       </section>
@@ -182,5 +163,9 @@ export default {
     rgba(255, 255, 255, 0)
   );
   padding-bottom: 3rem;
+}
+
+.px-7 {
+  padding: 1rem 2rem;
 }
 </style>

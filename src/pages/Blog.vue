@@ -3,7 +3,6 @@
     <section>
       <div class="container pt4">
         <div class="columns pb5">
-          <Sidebar />
           <div class="column">
             <div class="columns is-multiline pl4">
               <div class="column is-5">
@@ -20,8 +19,7 @@
                 </b-field>
               </div>
               <div class="columns is-multiline w-100" v-if="results.length > 0">
-                <div class="column is-offset-3 is-6" v-for="edge in results" :key="edge.id"
-                :class="{'is-half': results.length > 1}">
+                <div class="column is-3" v-for="edge in results" :key="edge.id">
                   <PostCard :post="edge"/>
                 </div>
               </div>

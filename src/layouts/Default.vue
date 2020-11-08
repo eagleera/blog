@@ -1,7 +1,7 @@
 <template>
   <div class="layout" :class="[getTheme.bg_color, getTheme.textcolor]">
     <header class="header" :class="[getTheme.bg_color]">
-      <Slide class="is-hidden-desktop">
+      <!-- <Slide class="is-hidden-desktop">
         <a href="/knowledge">
           <span>Knowledge</span>
         </a>
@@ -17,12 +17,12 @@
         <a>
           <span>Sepia mode</span>
         </a>
-      </Slide>
+      </Slide> -->
       <div class="container">
         <div class="columns is-mobile is-vcentered">
           <div class="column is-6 is-offset-2-touch">
             <a href="/" class="flex items-center">
-              <g-image src="~/assets/images/logo.png" width="55" />
+              <g-image src="~/assets/images/logo.png" width="40" />
               <span class="b f2 ml3" :class="getTheme.textcolor">
                 Daniel Aguilera
               </span>
@@ -31,14 +31,14 @@
           <div class="column is-6 is-hidden-touch">
 
             <div class="columns tc">
-              <div class="column">
+              <div class="column has-text-right">
                 <a @click="changeMode()" :class="getTheme.textcolor">
                   <fa icon="lightbulb" v-show="getTheme.mode == 'light'" size="lg"/>
                   <fa icon="moon" v-show="getTheme.mode == 'dark'" size="lg" />
                   <fa icon="mug-hot" v-show="getTheme.mode == 'sepia'" size="lg" />
                 </a>
               </div>
-              <div class="column">
+              <!-- <div class="column">
                 <a :class="[{'active': ruta == '/blog'}, getTheme.textcolor]" href="/blog">Knowledge</a>
               </div>
               <div class="column">
@@ -49,7 +49,7 @@
               </div>
               <div class="column">
                 <a :class="[{'active': ruta == '/her-me'}, getTheme.textcolor]" href="/her-me">Her & Me</a>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
     </header>
     <slot />
     <footer>
-      <div class="columns is-multiline is-vcentered h-100" :class="[getTheme.bg_color, getTheme.textcolor]">
+      <div class="columns is-multiline is-vcentered h-100">
         <div class="column tc pt0 pb0">
           Built with 
           <a href="https://github.com/gridsome">Gridsome</a>
@@ -132,9 +132,9 @@ export default {
   overflow-x: hidden;
   overflow-y: hidden;
 }
-.card{
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
-}
+// .card{
+//   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+// }
 body {
   font-family: 'Work Sans', sans-serif;
   word-spacing: 0rem;
@@ -157,7 +157,7 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2)
 }
 .iniciar-sesion .dropdown-content {
   padding: 18px 12px;
